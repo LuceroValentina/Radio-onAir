@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
+class UserSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password123'),
+            'cargo_id' => 1, 
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Tecnico',
+            'email' => 'tecnico@example.com',
+            'password' => Hash::make('password123'),
+            'cargo_id' => 2, 
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+    }
+}
+
+

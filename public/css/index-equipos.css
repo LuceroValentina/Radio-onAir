@@ -1,0 +1,12 @@
+body {
+    background-color: #F0F3BD;
+}
+
+.table thead.encabezado th {
+    background-color: #3a0ca3 !important;
+    color: #F0F3BD;
+}
+
+.table thead.encabezado th.acciones-th {
+    padding-right: 6rem;
+}
