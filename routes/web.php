@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\CronogramaController;
 use Illuminate\Support\Facades\Route;
@@ -36,15 +37,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/equipos/{equipo}/edit', [EquipoController::class, 'edit'])->name('equipos.edit');
     Route::put('/equipos/{equipo}', [EquipoController::class, 'update'])->name('equipos.update');
     Route::delete('/equipos/{equipo}', [EquipoController::class, 'destroy'])->name('equipos.destroy');
+    Route::get('/equipos/{equipo}/retirar', [EquipoController::class, 'retirarForm'])->name('equipos.retirar.form');
+    Route::post('/equipos/{equipo}/retirar', [EquipoController::class, 'retirar'])->name('equipos.retirar');
+
 
     // Rutas cronogramas
-     Route::get('/cronograma', [CronogramaController::class, 'index'])->name('cronograma.index');
+    Route::get('/cronograma', [CronogramaController::class, 'index'])->name('cronograma.index');
     Route::get('/cronograma/create', [CronogramaController::class, 'create'])->name('cronograma.create');
     Route::post('/cronograma', [CronogramaController::class, 'store'])->name('cronograma.store');
     Route::get('/cronograma/{cronograma}', [CronogramaController::class, 'show'])->name('cronograma.show');
     Route::get('/cronograma/{cronograma}/edit', [CronogramaController::class, 'edit'])->name('cronograma.edit');
     Route::put('/cronograma/{cronograma}', [CronogramaController::class, 'update'])->name('cronograma.update');
     Route::delete('/cronograma/{cronograma}', [CronogramaController::class, 'destroy'])->name('cronograma.destroy');
+
+
+    Route::resource('usuarios', UsuarioController::class);
 
 });
 

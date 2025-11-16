@@ -15,11 +15,14 @@ class CronogramaController extends Controller
     {
         $usuario = Auth::user();
         $cronogramas = Cronograma::with('usuario')->get();
+
         return view('cronograma.index', [
-            'cronograma' => $cronogramas,
+            'cronogramas' => $cronogramas,
             'esAdmin' => $usuario->rol === 'admin',
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,10 +39,12 @@ class CronogramaController extends Controller
     public function store(Request $request)
     {
         $validatedDatos = $request->validate([
-            'pauta' => 'required|string|max:255',
-            'duracion' => 'required|integer|min:0',
-            'publicidad' => 'required|string|max:255',
+            'pauta' => $request->pauta,
+            'duracion' => $request->duracion,
+            'publicidad' => $request->publicidad,
+            'usuario_id' => Auth::id(),
         ]);
+
 
         Cronograma::create($validatedDatos);
 

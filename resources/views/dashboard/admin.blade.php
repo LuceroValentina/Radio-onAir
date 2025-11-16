@@ -22,7 +22,7 @@
                     <img src="{{ asset('imagenes/flecha_menuabrir.png') }}" alt="Foto de perfil de usuario">
                     <ul>
                         <li class="lista"><a href="{{ route('equipos.index') }}" class="item">Administrar equipos</a></li>
-                        <li class="lista"><a href="#" class="item">Administrar cargos</a></li>
+                        <li class="lista"><a href="{{ route('usuarios.index') }}" class="item">Administrar cargos</a></li>
                         <li class="lista"><a href="{{ url('/crear_nota') }}" class="item">Administrar ausencias</a></li>
                         <li class="lista"><a href="{{ url('/registro_firmas') }}" class="item">Administrar usuarios</a>
                         </li>

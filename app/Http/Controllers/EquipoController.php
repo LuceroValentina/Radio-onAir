@@ -92,4 +92,27 @@ class EquipoController extends Controller
     }
 
 
+    public function retirarForm(Equipo $equipo)
+    {
+        return view('equipos.retirar', compact('equipo'));
+    }
+
+    public function retirar(Request $request, Equipo $equipo)
+    {
+        $request->validate([
+            'retirado_por' => 'required|string|max:255',
+            'motivo' => 'required|string|max:255',
+            'estado' => 'required|string|max:255',
+        ]);
+
+        $equipo->update([
+            'retirado_por' => $request->retirado_por,
+            'motivo_retiro' => $request->motivo,
+            'estado' => $request->estado,
+        ]);
+
+        return redirect()->route('equipos.index')->with('success', 'Equipo retirado correctamente.');
+    }
+
+
 }

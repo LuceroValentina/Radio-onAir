@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-
+    <!--Se necesita un registro de los dispositivos y equipos disponibles, ya que se pueden encontrar en disponibles, en uso, reparación, o dañados.-->
 <body>
     @php
         function resaltar($texto, $buscar)
